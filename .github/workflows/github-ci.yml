@@ -57,5 +57,5 @@ jobs:
 
     - name: Deploy to Amazon EKS
       run: |
-        kubectl delete -f front-deployment.yaml --namespace ${{ vars.AWS_EKS_NAMESPACE}}
-        kubectl apply -f front-deployment.yaml --namespace ${{ vars.AWS_EKS_NAMESPACE}}
+        kubectl delete -f ./front-deployment.yaml --namespace ${{ vars.AWS_EKS_NAMESPACE}}
+        kubectl apply -f ./front-deployment.yaml --namespace ${{ vars.AWS_EKS_NAMESPACE}}
