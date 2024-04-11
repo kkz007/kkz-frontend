@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-deployment
+spec:
+  selector:
+    matchLabels:
+      app: front-web
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: front-web
+    spec:
+      containers:
+        - name: front-web
+          image: 339712794622.dkr.ecr.ap-southeast-1.amazonaws.com/llw:latest
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "50m"
+            limits:
+              memory: "256Mi"
+              cpu: "50m"
+          env:
+            name: API_GATEWAY_SERVICE_HOST
+            value: api-gateway-service

@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+    web:
+        container_name: 'its-mgt-front'
+        build:
+            context: .
+        ports:
+            - '3000:3000'
+        environment:
+          NEXT_PUBLIC_ITS_BACKEND_API_URL: http://localhost:8000/api
+        volumes:
+            - .:/var/www
